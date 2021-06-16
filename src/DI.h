@@ -11,9 +11,9 @@
 #include "DI_CH256_1_8.h"
 
 typedef ifm_o3m_AlgoIFOutput_DIA1_1_4 Channel8;
-typedef ifm_o3m_SDspFrameCustomerImeas_t_DID1_1_5 Channel14;
+typedef ifm_o3m_SDspFrameCustomerImeas_t_DID1_1_8 Channel14;
 typedef ifm_o3m_AlgoIFOutputNoDI_DIA2_1_4 Channel20;
-typedef ifm_o3m_Meas_Customer_Data_Type_DIK1_1_6 Channel256;
+typedef ifm_o3m_Meas_Customer_Data_Type_DIK1_1_8 Channel256;
 
 #define FWVARIANT "BF"
 #define NUM_SENSOR_PIXELS (1024)

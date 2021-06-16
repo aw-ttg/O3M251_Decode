@@ -120,7 +120,7 @@ int processChannel14(void* buf, ifm_o3m_uint32_t size)
     Channel14* p_ch = NULL;
 
     // Is this DI structure version 1.5?
-    p_ch = ifm_o3m_ConvertBufferToLittleEndian_DID1_1_5(buf, size);
+    p_ch = ifm_o3m_ConvertBufferToLittleEndian_DID1_1_8(buf, size);
     if(p_ch)
     {
         // yes it is, so copy the data from this structure
@@ -233,7 +233,7 @@ int copyChannel256(Channel256* p)
 // You need this for every channel you want to process.
 int processChannel256(void* buf, ifm_o3m_uint32_t size)
 {
-    Channel256* p_ch256 = ifm_o3m_ConvertBufferToLittleEndian_DIK1_1_6(buf, size);
+    Channel256* p_ch256 = ifm_o3m_ConvertBufferToLittleEndian_DIK1_1_8(buf, size);
     if(p_ch256)
     {
         copyChannel256(p_ch256);

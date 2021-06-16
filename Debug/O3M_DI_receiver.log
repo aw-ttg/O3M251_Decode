@@ -1,0 +1,10 @@
+﻿  DI.c
+C:\IFM\O3M251\ifm_O3M_DI_V043500\Demos\C\src\DI.c(26,29): warning C4013: 'atoi' undefined; assuming extern returning int
+C:\IFM\O3M251\ifm_O3M_DI_V043500\Demos\C\src\DI.c(274,12): warning C4129: ' ': unrecognized character escape sequence
+C:\IFM\O3M251\ifm_O3M_DI_V043500\Demos\C\src\DI.c(255,9): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\IFM\O3M251\ifm_O3M_DI_V043500\Demos\C\src\DI.c(258,9): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\IFM\O3M251\ifm_O3M_DI_V043500\Demos\C\src\DI.c(261,9): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\IFM\O3M251\ifm_O3M_DI_V043500\Demos\C\src\DI.c(264,9): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\IFM\O3M251\ifm_O3M_DI_V043500\Demos\C\src\DI.c(267,9): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\IFM\O3M251\ifm_O3M_DI_V043500\Demos\C\src\DI.c(270,9): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  O3M_DI_receiver.vcxproj -> C:\IFM\O3M251\ifm_O3M_DI_V043500\Demos\C\Debug\O3M_DI_receiver.exe
