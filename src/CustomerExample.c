@@ -19,6 +19,11 @@ Copyright (C) 2017 ifm electronic GmbH
 #include "packet_headers.h"
 #include "O3MVariant.h"
 
+#include <WinSock2.h>
+#include <Ws2tcpip.h>
+
+#pragma comment(lib, "ws2_32.lib")
+
 /* This code uses the winsock2 library and therefore needs the Ws2_32.lib */
 #pragma message("------------> This code uses the winsock2 library. It should be found in the windows sdk. However, some versions may be missing the ws2_32.lib <------------")
 #pragma comment(lib, "Ws2_32.lib")
@@ -26,13 +31,13 @@ Copyright (C) 2017 ifm electronic GmbH
 // Initializes WinSock and starts the connection
 int startUDPConnection(ifm_o3m_uint16_t port, SOCKET* pSocket)
 {
-    WSADATA wsa;
-    SOCKADDR_IN addr;
+    WSADATA wsa = { 0 };
+    SOCKADDR_IN addr = { 0 };
     int ret;
     int rc;
 
     // Start Winsock
-    ret = WSAStartup(MAKEWORD(2, 0), &wsa);
+    ret = WSAStartup(MAKEWORD(2, 2), &wsa);
     if(ret != 0)
     {
         printf("Can't start Windows Socks API\n");
@@ -40,22 +45,25 @@ int startUDPConnection(ifm_o3m_uint16_t port, SOCKET* pSocket)
     }
 
     // create socket
-    *pSocket = socket(AF_INET, SOCK_DGRAM, 0);
+    *pSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
     if(*pSocket == INVALID_SOCKET)
     {
         printf("Coudln't create the UDP socket\n");
         return RESULT_ERROR;
     }
 
+    const char* srcIP = "192.168.82.2";
+
     // bind socket to port
-    addr.sin_family = AF_INET;
     addr.sin_port = htons(port);
-    addr.sin_addr.s_addr = ADDR_ANY;
+    addr.sin_family = AF_INET;
+    inet_pton(AF_INET, srcIP, &addr.sin_addr.s_addr);
 
     rc = bind(*pSocket, (SOCKADDR*)&addr, sizeof(SOCKADDR_IN));
     if(rc == SOCKET_ERROR)
     {
-        printf("Bind didn't work, error code: %d\n", WSAGetLastError());
+        int code = WSAGetLastError();
+        printf("Bind didn't work, error code: %d\n", code);
         return RESULT_ERROR;
     }
 
@@ -233,15 +241,16 @@ int main(int argc, char* argv[])
     }
 
     const ifm_o3m_uint16_t port = 42000; // Default is UDP port 42000
-    SOCKET socket;
+    SOCKET socket_;
+    //socket_ = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
-    int ret = startUDPConnection(port, &socket);
+    int ret = startUDPConnection(port, &socket_);
     if(ret == RESULT_OK)
     {
-        Receiver(&socket, channelOfInterest);
+        Receiver(&socket_, channelOfInterest);
     }
 
-    stopUDPConnection(&socket);
+    stopUDPConnection(&socket_);
 
     return RESULT_OK;
 }

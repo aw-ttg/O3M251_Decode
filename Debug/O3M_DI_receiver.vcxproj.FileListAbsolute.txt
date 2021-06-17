@@ -1,1 +1,2 @@
 C:\IFM\O3M251\ifm_O3M_DI_V043500\Demos\C\Debug\O3M_DI_receiver.exe
+C:\Development\O3M251_Decode\Debug\O3M_DI_receiver.exe
